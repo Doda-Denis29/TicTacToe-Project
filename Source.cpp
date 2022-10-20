@@ -21,15 +21,8 @@ int main() {
         std::cout << "Press 1..9\n";
         std::cin >> x;
 
-        if (checkPos("TicTacToeBoard.txt", x)) {
-            system("cls");
-            std::cout << "Nice";
-            lmao = false;
-        }
-        else {
-            system("cls");
-            std::cout << "Bruh moment";
-            lmao = false;
-        }
+        
+
+        lmao = false;
     }
 }
