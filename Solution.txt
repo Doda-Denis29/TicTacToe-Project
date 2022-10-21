@@ -1,0 +1,16 @@
+Player selects the position then it creates the node with the specified location with value 1 for X and 
+value 0 for O, after we can check if there is a path for X and O which path is equal to 6 (Each node has
+heuristic value of 1 and each edge is valued 1
+
+Possible solution:
+X -> heuristic value of 1
+O -> heuristic value of 2
+edges -> value of 2
+if node is set to a corner then check all posible pos if set in the middle only check opposite corner
+
+
+Possible implementation:
+Use of circular lists??
+Init the graph already with nodes and just add an O or a X
+Maybe I'm going insane monkey mode U U UUU UUUUU AAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAA
+Break into tiny numbers to check position

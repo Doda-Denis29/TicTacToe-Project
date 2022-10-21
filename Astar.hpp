@@ -1,7 +1,8 @@
 #ifndef Astar
 #define Astar
 
-//Includes
+#include <string>
+#include <iostream>
 
 namespace astar {
 	struct Node;
@@ -9,10 +10,20 @@ namespace astar {
 
 	struct Node {
 		int val;
-		NodePtr nodeptr;
-		void addNode(Node);
-		void deleteNode(Node);
-		bool checkPath();
+		NodePtr next;
+	};
+
+	class Graph {
+	public:
+		Graph();
+		void addNode(int v);
+		NodePtr getHead();
+		void concatenate(NodePtr X, NodePtr O);
+		static void display(NodePtr nodeptr);
+		int getScore();
+	private:
+		NodePtr head, tail;
+		int G, H;
 	};
 }
 
