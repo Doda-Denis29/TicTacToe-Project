@@ -20,8 +20,8 @@ int main() {
     }*/
 
     Graph g;
-    g.addNode(1);
-    g.addNode(2);
-    g.addNode(1);
+    g.initBoard();
+    Graph::display(g.getHead());
+    g.modifyNode(g.getHead(), 12, 120);
     Graph::display(g.getHead());
 }
