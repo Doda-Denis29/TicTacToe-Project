@@ -75,3 +75,11 @@ void Graph::modifyNode(NodePtr nodeptr, int valueToChange, int whatToChange) {
 		modifyNode(nodeptr->next, valueToChange, whatToChange);
 	}
 }
+
+int Graph::getScore() {
+	return G + H;
+}
+
+bool Graph::findPath(NodePtr start, NodePtr end) {
+
+}

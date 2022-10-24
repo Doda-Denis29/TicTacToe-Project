@@ -21,9 +21,10 @@ namespace astar {
 		static void display(NodePtr nodeptr);
 		void initBoard();
 		void modifyNode(NodePtr nodeptr, int valueToChange, int whatToChange);
-		int getScore();
+		bool findPath(NodePtr start, NodePtr end);
 	protected:
 		void addNode(int v);
+		int getScore();
 	private:
 		NodePtr head, tail;
 		int G, H;
