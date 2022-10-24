@@ -16,14 +16,10 @@ namespace astar {
 	class Graph {
 	public:
 		Graph();
-		NodePtr getHead();
-		void concatenate(NodePtr X, NodePtr O);
-		static void display(NodePtr nodeptr);
-		void initBoard();
-		void modifyNode(NodePtr nodeptr, int valueToChange, int whatToChange);
-		bool findPath(NodePtr start, NodePtr end);
+		void initMatrix(char(*m)[3], size_t rows);
+
+		void display_Dev(char(*m)[3], size_t rows);
 	protected:
-		void addNode(int v);
 		int getScore();
 	private:
 		NodePtr head, tail;

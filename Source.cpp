@@ -20,8 +20,7 @@ int main() {
     }*/
 
     Graph g;
-    g.initBoard();
-    Graph::display(g.getHead());
-    g.modifyNode(g.getHead(), 12, 120);
-    Graph::display(g.getHead());
+    char m[3][3];
+    g.initMatrix(m, 3);
+    g.display(m, 3);
 }
