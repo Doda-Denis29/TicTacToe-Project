@@ -108,6 +108,40 @@ namespace display {
 		return true;
 	}
 
+	bool illegalMove(std::string fileName, int x) {
+		auto lineToCheck = 0;
+
+		switch (x) {
+		case 1:
+		case 2:
+		case 3:
+			lineToCheck = 3;
+			break;
+		case 4:
+		case 5:
+		case 6:
+			lineToCheck = 11;
+			break;
+		case 7:
+		case 8:
+		case 9:
+			lineToCheck = 18;
+			break;
+		default:
+			break;
+		}
+
+		std::string c;
+		c = returnLine(fileName, lineToCheck);
+
+		int checkPos = c.find(std::to_string(x));
+
+		if (checkPos == -1 || checkPos == std::string::npos) {
+			return true;
+		}
+		return false;
+	}
+
 	void gameMvX(std::string fileName, int x) {
 
 		if (checkPos(fileName, x)) {
