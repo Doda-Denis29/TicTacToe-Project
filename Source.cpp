@@ -1,41 +1,13 @@
-#include "Displays.hpp"
+#include "Extras.hpp"
 #include "Astar.hpp"
-#include <vector>
-#include <algorithm>
 
 using namespace display;
 using namespace astar;
+using namespace extras;
 
-bool winCondition(std::string fileName) {
-	std::string line1 = returnLine(fileName, 3);
-	std::string line2 = returnLine(fileName, 11);
-	std::string line3 = returnLine(fileName, 18);
-
-	if ((line1.at(18) == line1.at(32) && line1.at(18) == line1.at(46) && line1.at(32) == line1.at(46)) ||
-		(line2.at(18) == line2.at(32) && line2.at(18) == line2.at(46) && line2.at(32) == line2.at(46)) ||
-		(line3.at(18) == line3.at(32) && line3.at(18) == line3.at(46) && line3.at(32) == line3.at(46)) || 
-		(line1.at(18) == line2.at(18) && line1.at(18) == line3.at(18) && line2.at(18) == line3.at(18)) ||
-		(line1.at(32) == line2.at(32) && line1.at(32) == line3.at(32) && line2.at(32) == line3.at(32)) ||
-		(line1.at(46) == line2.at(46) && line1.at(46) == line3.at(46) && line2.at(46) == line3.at(46)) ||
-		(line1.at(18) == line2.at(32) && line1.at(18) == line3.at(46) && line2.at(32) == line3.at(46)) || 
-		(line3.at(18) == line2.at(32) && line3.at(18) == line1.at(46) && line2.at(32) == line1.at(46))) {
-		return true;
-	}
-	return false;
-}
-
-bool findElement(std::vector<int> a, int elementThatWeWant) {
-	for (auto in = 0; in < a.size(); in++)
-		return elementThatWeWant == a.at(in);
-}
-
-void removeSameElement(std::vector<int> &a) {
-	std::sort(a.begin(), a.end());
-	a.erase(std::unique(a.begin(), a.end()), a.end());
-}
 
 int main() {
-	bool gameLife = true;
+	/*bool gameLife = true;
 	int select, turn = 0;
 	std::vector<int> allPositionsTaken;
 
@@ -88,5 +60,16 @@ int main() {
 
 		}
 		turn++;
-	}
+	}*/
+
+	int testBord[3][3] = {
+		{1,0,1},
+		{1,0,0},
+		{1,0,1}
+	};
+
+	myPair start = std::make_pair(0, 0);
+	myPair end = std::make_pair(2, 0);
+
+	StarSearchX(testBord, start, end);
 }

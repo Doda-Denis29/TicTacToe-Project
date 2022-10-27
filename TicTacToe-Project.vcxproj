@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClInclude Include="Astar.hpp" />
     <ClInclude Include="Displays.hpp" />
+    <ClInclude Include="Extras.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp" />

@@ -21,6 +21,9 @@
     <ClInclude Include="Astar.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Extras.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">

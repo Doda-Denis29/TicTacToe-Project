@@ -10,7 +10,7 @@
 #include <set>
 
 namespace astar {
-	const int row = 2, col = 2;
+	const int row = 3, col = 3;
 
 	typedef std::pair<int, int> myPair;
 	typedef std::pair<double, std::pair<int, int>> dPair;
@@ -57,12 +57,17 @@ namespace astar {
 		while (!Path.empty()) {
 			std::pair<int, int> p = Path.top();
 			Path.pop();
-			std::cout << p.first << " " << p.second << " -> ";
+			if (Path.empty()) {
+				std::cout << "Board[ " << p.first << " ][ " << p.second << " ] ";
+			}
+			else {
+				std::cout << "Board[ " << p.first << " ][ " << p.second << " ]  -> ";
+			}
 		}
 		std::cout << "\n";
 	}
 
-	void StarSearchO(int board[][col], myPair source, myPair destination) {
+	void StarSearchX(int board[][col], myPair source, myPair destination) {
 		if (isUnblocked_X(board, source.first, source.second) == false ||
 			isUnblocked_X(board, destination.first, destination.second) == false) {
 			std::cout << "Source or the destination is blocked\n";
