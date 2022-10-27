@@ -329,12 +329,11 @@ namespace astar {
 					}
 				}
 			}
-
-			if (foundDestination == false) {
-				std::cout << "Failed to find destination\n";
-			}
-			return;
-		} //while
+		}
+		if (foundDestination == false) {
+			std::cout << "Failed to find destination\n";
+		}
+		return;
 	}
 }
 
