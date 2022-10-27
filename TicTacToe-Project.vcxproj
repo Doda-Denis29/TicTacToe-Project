@@ -141,9 +141,9 @@
   <ItemGroup>
     <ClInclude Include="Astar.hpp" />
     <ClInclude Include="Displays.hpp" />
+    <ClInclude Include="Extras.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Astar.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
