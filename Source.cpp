@@ -11,7 +11,14 @@ bool winCondition(std::string fileName) {
 	std::string line2 = returnLine(fileName, 11);
 	std::string line3 = returnLine(fileName, 18);
 
-	if (line1.at(18) == line1.at(32) && line1.at(18) == line1.at(46) && line1.at(32) == line1.at(46)) {
+	if ((line1.at(18) == line1.at(32) && line1.at(18) == line1.at(46) && line1.at(32) == line1.at(46)) ||
+		(line2.at(18) == line2.at(32) && line2.at(18) == line2.at(46) && line2.at(32) == line2.at(46)) ||
+		(line3.at(18) == line3.at(32) && line3.at(18) == line3.at(46) && line3.at(32) == line3.at(46)) || 
+		(line1.at(18) == line2.at(18) && line1.at(18) == line3.at(18) && line2.at(18) == line3.at(18)) ||
+		(line1.at(32) == line2.at(32) && line1.at(32) == line3.at(32) && line2.at(32) == line3.at(32)) ||
+		(line1.at(46) == line2.at(46) && line1.at(46) == line3.at(46) && line2.at(46) == line3.at(46)) ||
+		(line1.at(18) == line2.at(32) && line1.at(18) == line3.at(46) && line2.at(32) == line3.at(46)) || 
+		(line3.at(18) == line2.at(32) && line3.at(18) == line1.at(46) && line2.at(32) == line1.at(46))) {
 		return true;
 	}
 	return false;
@@ -22,7 +29,7 @@ bool findElement(std::vector<int> a, int elementThatWeWant) {
 		return elementThatWeWant == a.at(in);
 }
 
-void removeSameElement(std::vector<int> a) {
+void removeSameElement(std::vector<int> &a) {
 	std::sort(a.begin(), a.end());
 	a.erase(std::unique(a.begin(), a.end()), a.end());
 }
@@ -35,6 +42,7 @@ int main() {
 	copyFiles("recoveryTicTacToeBoard.txt", "TicTacToeBoard.txt");
 
 	while (gameLife) {
+		system("cls");
 		printBoard("TicTacToeBoard.txt");
 		std::cout << "Press 1..9\n";
 		std::cin >> select;
@@ -75,6 +83,9 @@ int main() {
 				std::cout << "O wins";
 			}
 			gameLife = false;
+		}
+		if (allPositionsTaken.size() == 9) {
+
 		}
 		turn++;
 	}
