@@ -143,7 +143,6 @@
     <ClInclude Include="Displays.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Astar.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
