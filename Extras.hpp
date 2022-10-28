@@ -25,8 +25,12 @@ namespace extras {
 	}
 
 	bool findElement(std::vector<int> a, int elementThatWeWant) {
-		for (auto in = 0; in < a.size(); in++)
-			return elementThatWeWant == a.at(in);
+		for (auto in = 0; in < a.size(); in++) {
+			if (a.at(in) == elementThatWeWant) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	void removeSameElement(std::vector<int>& a) {
@@ -89,12 +93,97 @@ namespace extras {
 				tempIndex++;
 			}
 		}
-
-		for (auto in = 0; in < temp.size(); in++) {
-			std::cout << temp.at(in) << " ";
-		}
-		std::cout << "\n";
 	}
+
+	bool lineCheck(int board[][3], int& s, int& e) {
+		int check = 0;
+		for (auto in = 0; in < 3; in++) {
+			check = 0;
+			for (auto inj = 0; inj < 3; inj++) {
+				if (board[in][inj] == board[in][inj + 1]) {
+					check++;
+				}
+
+				if (check == 2) {
+					s = in;
+					e = inj;
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	bool colCheck(int board[][3], int& s, int& e) {
+		int check = 0;
+		for (auto inj = 0; inj < 3; inj++) {
+			check = 0;
+			for (auto in = 0; in < 3; in++) {
+				if (board[in][inj] == board[in + 1][inj]) {
+					check++;
+				}
+
+				if (check == 2) {
+					s = inj;
+					e = in;
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	bool diagCheck(int board[][3], int& s, int& e) {
+		if (board[0][0] == board[1][1] && board[0][0] == board[2][2] && board[1][1] == board[2][2]) {
+			s = 0;
+			e = 2;
+			return true;
+		}
+		else if (board[0][2] == board[1][1] && board[0][2] == board[2][0] && board[1][1] == board[2][0]) {
+			s = 2;
+			e = 0;
+			return true;
+		}
+		return false;
+	}
+
+	int getStartAndEnd(int board[][3]) {
+		int s, e;
+		if (lineCheck(board, s, e)) {
+			return 0;
+		}
+		else if (colCheck(board, s, e)) {
+			return 1;
+		}
+		else if (diagCheck(board, s, e)) {
+			return 2;
+		}
+	}
+
+	//bool sameNextNeighbour(int board[][3], int currentPosX, int currentPosY) {
+	//	if (board[currentPosX][currentPosY] == board[currentPosX - 1][currentPosY] ||
+	//		board[currentPosX][currentPosY] == board[currentPosX - 1][currentPosY - 1] ||
+	//		board[currentPosX][currentPosY] == board[currentPosX - 1][currentPosY + 1] ||
+	//		board[currentPosX][currentPosY] == board[currentPosX][currentPosY - 1] ||
+	//		board[currentPosX][currentPosY] == board[currentPosX][currentPosY + 1] ||
+	//		board[currentPosX][currentPosY] == board[currentPosX + 1][currentPosY] ||
+	//		board[currentPosX][currentPosY] == board[currentPosX + 1][currentPosY - 1] ||
+	//		board[currentPosX][currentPosY] == board[currentPosX + 1][currentPosY + 1]) {
+	//		return true;
+	//	}
+	//	return false;
+	//}
+
+	//int whereToStart(int board[][3], int& start, int& end) {
+	//	int checker = 0;
+	//	for (auto in = 0; in < 3; in++) {
+	//		for (auto inj = 0; inj < 3; inj++) {
+	//			if (sameNextNeighbour(board, in, inj)) {
+	//				checker++;
+	//			}
+	//		}
+	//	}
+	//}
 }
 
 

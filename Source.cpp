@@ -7,9 +7,10 @@ using namespace extras;
 
 
 int main() {
-	/*bool gameLife = true;
+	bool gameLife = true;
 	int select, turn = 0;
 	std::vector<int> allPositionsTaken;
+	int Board[3][3];
 
 	copyFiles("recoveryTicTacToeBoard.txt", "TicTacToeBoard.txt");
 
@@ -17,10 +18,10 @@ int main() {
 		system("cls");
 		printBoard("TicTacToeBoard.txt");
 		std::cout << "Press 1..9\n";
-		std::cin >> select;
-		allPositionsTaken.push_back(select);
 		removeSameElement(allPositionsTaken);
 		if (turn % 2 == 0) {
+			std::cin >> select;
+			allPositionsTaken.push_back(select);
 			if (illegalMove("TicTacToeBoard.txt", select)) {
 				while (findElement(allPositionsTaken, select) || select > 9) {
 					printBoard("TicTacToeBoard.txt");
@@ -33,54 +34,90 @@ int main() {
 				gameMvX("TicTacToeBoard.txt", select);
 			}
 		}
-		else {
-			if (illegalMove("TicTacToeBoard.txt", select)) {
-				while (findElement(allPositionsTaken, select) || select > 9) {
-					printBoard("TicTacToeBoard.txt");
-					std::cout << "Press 1..9\n";
-					std::cin >> select;
-					gameMvO("TicTacToeBoard.txt", select);
-				}
-			}
-			else {
-				gameMvO("TicTacToeBoard.txt", select);
-			}
+		else { //Turn O time
+			select = enemyTurn(allPositionsTaken);
+			allPositionsTaken.push_back(select);
+			gameMvO("TicTacToeBoard.txt", select);
 		}
 		if (winCondition("TicTacToeBoard.txt")) {
+			toMatrix(Board, "TicTacToeBoard.txt");
+
 			printBoard("TicTacToeBoard.txt");
+
+			int startLoc, endLoc, getter;
+			getter = getStartAndEnd(Board);
+
+			myPair start, end;
+
+			switch (getter) {
+			case 0:
+				if (lineCheck(Board, startLoc, endLoc)) {
+					switch (startLoc) {
+					case 0:
+						start = std::make_pair(0, 0);
+						end = std::make_pair(0, 2);
+						break;
+					case 1:
+						start = std::make_pair(1, 0);
+						end = std::make_pair(1, 2);
+						break;
+					case 2:
+						start = std::make_pair(2, 0);
+						end = std::make_pair(2, 2);
+						break;
+					}
+				}
+				break;
+			case 1:
+				if (colCheck(Board, startLoc, endLoc)) {
+					switch (startLoc) {
+					case 0:
+						start = std::make_pair(0, 0);
+						end = std::make_pair(2, 0);
+						break;
+					case 1:
+						start = std::make_pair(0, 1);
+						end = std::make_pair(2, 1);
+						break;
+					case 2:
+						start = std::make_pair(0, 2);
+						end = std::make_pair(2, 2);
+						break;
+					}
+				}
+				break;
+			case 2:
+				if (diagCheck(Board, startLoc, endLoc)) {
+					switch (startLoc) {
+					case 0:
+						start = std::make_pair(0, 0);
+						end= std::make_pair(2, 2);
+						break;
+					case 2:
+						start = std::make_pair(0, 2);
+						end = std::make_pair(2, 0);
+						break;
+					}
+				}
+				break;
+			default:
+				break;
+			}
+
 			if (turn % 2 == 0) {
-				std::cout << "X wins";
+				std::cout << "X wins\n";
+				StarSearchX(Board, start, end);
 			}
 			else {
-				std::cout << "O wins";
+				std::cout << "O wins\n";
+				StarSearchO(Board, start, end);
 			}
 			gameLife = false;
 		}
 		if (allPositionsTaken.size() == 9) {
-
+			printBoard("TicTacToeBoard.txt");
+			std::cout << "Draw\n";
 		}
 		turn++;
-	}*/
-
-	int testBord[3][3] = {
-		{1,1,0},
-		{1,1,0},
-		{0,0,1}
-	};
-
-	myPair start = std::make_pair(0, 0);
-	myPair end = std::make_pair(2, 2);
-
-	StarSearchX(testBord, start, end);
-
-	int anotherBoard[3][3];
-
-	toMatrix(anotherBoard, "TicTacToeBoard.txt");
-
-	for (auto in = 0; in < 3; in++) {
-		for (auto inj = 0; inj < 3; inj++) {
-			std::cout << anotherBoard[in][inj] << " ";
-		}
-		std::cout << "\n";
 	}
 }
