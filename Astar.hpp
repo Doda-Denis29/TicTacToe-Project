@@ -111,7 +111,7 @@ namespace astar {
 
 			double newF, newG, newH;
 
-			//1st
+			//1st North
 			if (isValid(in - 1, inj) == true) {
 				if (Reach(in - 1, inj, destination) == true) {
 					boardDetails[in - 1][inj].i = in;
@@ -139,7 +139,7 @@ namespace astar {
 				}
 			}
 
-			//2nd turn
+			//2nd South
 			if (isValid(in + 1, inj) == true) {
 				if (Reach(in + 1, inj, destination) == true) {
 					boardDetails[in + 1][inj].i = in;
@@ -167,7 +167,7 @@ namespace astar {
 				}
 			}
 
-			//3rd
+			//3rd East
 			if (isValid(in, inj + 1) == true) {
 				if (Reach(in, inj + 1, destination) == true) {
 					boardDetails[in][inj + 1].i = in;
@@ -195,7 +195,7 @@ namespace astar {
 				}
 			}
 
-			//4th
+			//4th West
 			if (isValid(in, inj - 1) == true) {
 				if (Reach(in, inj - 1, destination) == true) {
 					boardDetails[in][inj - 1].i = in;
@@ -223,7 +223,7 @@ namespace astar {
 				}
 			}
 
-			//5th
+			//5th North-East
 			if (isValid(in - 1, inj + 1) == true) {
 				if (Reach(in - 1, inj + 1, destination) == true) {
 					boardDetails[in - 1][inj + 1].i = in;
@@ -251,7 +251,7 @@ namespace astar {
 				}
 			}
 
-			//6th
+			//6th North-West
 			if (isValid(in - 1, inj - 1) == true) {
 				if (Reach(in - 1, inj - 1, destination) == true) {
 					boardDetails[in - 1][inj - 1].i = in;
@@ -279,7 +279,7 @@ namespace astar {
 				}
 			}
 
-			//7th
+			//7th South-East
 			if (isValid(in + 1, inj + 1) == true) {
 				if (Reach(in + 1, inj + 1, destination) == true) {
 					boardDetails[in + 1][inj + 1].i = in;
@@ -307,7 +307,7 @@ namespace astar {
 				}
 			}
 
-			//8th
+			//8th South-West
 			if (isValid(in + 1, inj - 1) == true) {
 				if (Reach(in + 1, inj - 1, destination) == true) {
 					boardDetails[in + 1][inj - 1].i = in;

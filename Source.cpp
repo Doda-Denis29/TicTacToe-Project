@@ -63,13 +63,24 @@ int main() {
 	}*/
 
 	int testBord[3][3] = {
-		{1,0,1},
-		{1,0,0},
-		{1,0,1}
+		{1,1,0},
+		{1,1,0},
+		{0,0,1}
 	};
 
 	myPair start = std::make_pair(0, 0);
-	myPair end = std::make_pair(2, 0);
+	myPair end = std::make_pair(2, 2);
 
 	StarSearchX(testBord, start, end);
+
+	int anotherBoard[3][3];
+
+	toMatrix(anotherBoard, "TicTacToeBoard.txt");
+
+	for (auto in = 0; in < 3; in++) {
+		for (auto inj = 0; inj < 3; inj++) {
+			std::cout << anotherBoard[in][inj] << " ";
+		}
+		std::cout << "\n";
+	}
 }
