@@ -626,7 +626,7 @@ namespace astar {
 
 		int turn = std::rand() % 9;
 
-		while (extras::findElement(alreadyTaken, turn)) {
+		while (extras::findElement(alreadyTaken, turn + 1)) {
 			turn = std::rand() % 9;
 		}
 

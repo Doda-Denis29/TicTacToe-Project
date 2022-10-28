@@ -36,8 +36,8 @@ int main() {
 		}
 		else { //Turn O time
 			select = enemyTurn(allPositionsTaken);
-			allPositionsTaken.push_back(select);
-			gameMvO("TicTacToeBoard.txt", select);
+			allPositionsTaken.push_back(select + 1);
+			gameMvO("TicTacToeBoard.txt", select + 1);
 		}
 		if (winCondition("TicTacToeBoard.txt")) {
 			toMatrix(Board, "TicTacToeBoard.txt");

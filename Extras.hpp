@@ -99,7 +99,7 @@ namespace extras {
 		int check = 0;
 		for (auto in = 0; in < 3; in++) {
 			check = 0;
-			for (auto inj = 0; inj < 3; inj++) {
+			for (auto inj = 0; inj < 2; inj++) {
 				if (board[in][inj] == board[in][inj + 1]) {
 					check++;
 				}
@@ -118,7 +118,7 @@ namespace extras {
 		int check = 0;
 		for (auto inj = 0; inj < 3; inj++) {
 			check = 0;
-			for (auto in = 0; in < 3; in++) {
+			for (auto in = 0; in < 2; in++) {
 				if (board[in][inj] == board[in + 1][inj]) {
 					check++;
 				}
@@ -159,31 +159,6 @@ namespace extras {
 			return 2;
 		}
 	}
-
-	//bool sameNextNeighbour(int board[][3], int currentPosX, int currentPosY) {
-	//	if (board[currentPosX][currentPosY] == board[currentPosX - 1][currentPosY] ||
-	//		board[currentPosX][currentPosY] == board[currentPosX - 1][currentPosY - 1] ||
-	//		board[currentPosX][currentPosY] == board[currentPosX - 1][currentPosY + 1] ||
-	//		board[currentPosX][currentPosY] == board[currentPosX][currentPosY - 1] ||
-	//		board[currentPosX][currentPosY] == board[currentPosX][currentPosY + 1] ||
-	//		board[currentPosX][currentPosY] == board[currentPosX + 1][currentPosY] ||
-	//		board[currentPosX][currentPosY] == board[currentPosX + 1][currentPosY - 1] ||
-	//		board[currentPosX][currentPosY] == board[currentPosX + 1][currentPosY + 1]) {
-	//		return true;
-	//	}
-	//	return false;
-	//}
-
-	//int whereToStart(int board[][3], int& start, int& end) {
-	//	int checker = 0;
-	//	for (auto in = 0; in < 3; in++) {
-	//		for (auto inj = 0; inj < 3; inj++) {
-	//			if (sameNextNeighbour(board, in, inj)) {
-	//				checker++;
-	//			}
-	//		}
-	//	}
-	//}
 }
 
 
