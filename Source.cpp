@@ -5,7 +5,6 @@ using namespace display;
 using namespace astar;
 using namespace extras;
 
-
 int main() {
 	bool gameLife = true;
 	int select, turn = 0;
@@ -79,7 +78,7 @@ int main() {
 						start = std::make_pair(0, 1);
 						end = std::make_pair(2, 1);
 						break;
-					default:
+					case 2:
 						start = std::make_pair(0, 2);
 						end = std::make_pair(2, 2);
 						break;
@@ -115,9 +114,13 @@ int main() {
 			gameLife = false;
 		}
 		if (allPositionsTaken.size() == 9) {
-			printBoard("TicTacToeBoard.txt");
-			std::cout << "Draw\n";
+			gameLife = false;
 		}
 		turn++;
+	}
+
+	if (allPositionsTaken.size() == 9) {
+		printBoard("TicTacToeBoard.txt");
+		std::cout << "The game is a draw !!!\n";
 	}
 }

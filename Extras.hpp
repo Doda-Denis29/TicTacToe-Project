@@ -87,8 +87,11 @@ namespace extras {
 				if (temp.at(tempIndex) == 'X') {
 					board[in][inj] = 1;
 				}
-				else {
+				else if(temp.at(tempIndex) == 'O') {
 					board[in][inj] = 0;
+				}
+				else {
+					board[in][inj] = 2;
 				}
 				tempIndex++;
 			}
@@ -96,44 +99,39 @@ namespace extras {
 	}
 
 	bool lineCheck(int board[][3], int& s, int& e) {
-		int check = 0;
-		for (auto in = 0; in < 3; in++) {
-			check = 0;
-			for (auto inj = 0; inj < 2; inj++) {
-				if (board[in][inj] == board[in][inj + 1]) {
-					check++;
-				}
-
-				if (check == 2) {
-					s = in;
-					e = inj;
-					return true;
-				}
-			}
+		if (board[0][0] == board[0][1] && board[0][1] == board[0][2] && board[0][0] == board[0][2]) {
+			s = 0;
+			e = 2;
+			return true;
+		}
+		else if (board[1][0] == board[1][1] && board[1][1] == board[1][2] && board[1][0] == board[1][2]) {
+			s = 1;
+			e = 2;
+			return true;
+		}
+		else if (board[2][0] == board[2][1] && board[2][1] == board[2][2] && board[2][0] == board[2][2]) {
+			s = 2;
+			e = 2;
+			return true;
 		}
 		return false;
 	}
 
 	bool colCheck(int board[][3], int& s, int& e) {
-		int check = 0, originalJ = 0;
-
-		for (auto inj = 0; inj < 3; inj++) {
-			check = 0;
-			for (auto in = 0; in < 2; in++) {
-				if (board[in][inj] == board[in + 1][inj]) {
-					if (check == 0) {
-						originalJ = inj;
-					}
-					check++;
-				}
-
-				if (check == 2) {
-					s = originalJ;
-					e = in;
-					return true;
-				}
-
-			}
+		if (board[0][0] == board[1][0] && board[1][0] == board[2][0] && board[0][0] == board[2][0]) {
+			s = 0;
+			e = 2;
+			return true;
+		}
+		else if (board[0][1] == board[1][1] && board[0][1] == board[2][1] && board[1][1] == board[2][1]) {
+			s = 1;
+			e = 2;
+			return true;
+		}
+		else if (board[0][2] == board[1][2] && board[0][2] == board[2][2] && board[1][2] == board[2][2]) {
+			s = 2;
+			e = 2;
+			return true;
 		}
 		return false;
 	}
