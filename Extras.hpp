@@ -115,19 +115,24 @@ namespace extras {
 	}
 
 	bool colCheck(int board[][3], int& s, int& e) {
-		int check = 0;
+		int check = 0, originalJ = 0;
+
 		for (auto inj = 0; inj < 3; inj++) {
 			check = 0;
 			for (auto in = 0; in < 2; in++) {
 				if (board[in][inj] == board[in + 1][inj]) {
+					if (check == 0) {
+						originalJ = inj;
+					}
 					check++;
 				}
 
 				if (check == 2) {
-					s = inj;
+					s = originalJ;
 					e = in;
 					return true;
 				}
+
 			}
 		}
 		return false;

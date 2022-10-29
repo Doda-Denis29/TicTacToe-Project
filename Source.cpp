@@ -79,7 +79,7 @@ int main() {
 						start = std::make_pair(0, 1);
 						end = std::make_pair(2, 1);
 						break;
-					case 2:
+					default:
 						start = std::make_pair(0, 2);
 						end = std::make_pair(2, 2);
 						break;
